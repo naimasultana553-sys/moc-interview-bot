@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/app/main.py",
+      "src": "api/index.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "50mb"
@@ -16,10 +16,22 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/app/main.py"
+      "dest": "api/index.py"
     },
     {
-      "src": "/(.*\\.(css|js|ico|png|jpg|svg|woff2?))",
+      "src": "/docs",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/openapi.json",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/redoc",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/(app\\.js|styles\\.css)",
       "dest": "frontend/dist/$1"
     },
     {
@@ -30,6 +42,6 @@
   "env": {
     "OPENAI_MODEL": "gpt-4o-mini",
     "CORS_ORIGINS": "*",
-    "DATA_DIR": "/tmp/data"
+    "DATA_DIR": "/tmp/moc_data"
   }
 }

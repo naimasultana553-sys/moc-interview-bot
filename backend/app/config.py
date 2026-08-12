@@ -18,6 +18,8 @@ class Settings(BaseSettings):
 
     openai_api_key: str = ""
     openai_model: str = "gpt-4o-mini"
+    # On Vercel the filesystem is read-only; /tmp is the only writable location.
+    # The DATA_DIR env var (set in vercel.json) overrides this default.
     data_dir: str = str(BACKEND_DIR / "data")
     upload_max_mb: int = 10
     host: str = "127.0.0.1"
