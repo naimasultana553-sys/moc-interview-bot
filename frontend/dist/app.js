@@ -890,13 +890,8 @@ function resetAll() {
    ================================================================ */
 function bindEvents() {
   // landing
-  $("landing-start").addEventListener("click", goToUpload);
-  $("landing-upload").addEventListener("click", goToUpload);
-  $("landing-cta").addEventListener("click", goToUpload);
   $("get-started-btn").addEventListener("click", goToUpload);
   $("drawer-get-started").addEventListener("click", () => { $("mobile-drawer").hidden = true; goToUpload(); });
-  $("signin-btn").addEventListener("click", () => toast("Sign in coming soon."));
-  $("drawer-signin").addEventListener("click", () => { $("mobile-drawer").hidden = true; toast("Sign in coming soon."); });
 
   // nav links / logo
   $$('[data-nav-home]').forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); showView("landing"); }));
