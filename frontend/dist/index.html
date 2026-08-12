@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Interview Bot — Practice Smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,0&display=swap" rel="stylesheet" />
+   <link rel="stylesheet" href="styles.css?v=6" />
+</head>
+<body>
+  <canvas id="neural-bg" class="neural-bg" aria-hidden="true"></canvas>
+
+  <!-- Global Navbar -->
+  <header class="navbar" id="navbar">
+    <button class="logo" type="button" data-nav-home>
+      <span class="ai-orb sm" aria-hidden="true"></span>
+      <span class="logo-text">AI Interview<span class="accent">.Bot</span></span>
+    </button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#landing" data-nav-home>Home</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-actions">
+      <span class="mode-badge" id="mode-badge">AI mock</span>
+      <button class="btn btn-ghost sm hidden-sm" type="button" id="signin-btn">Sign In</button>
+      <button class="btn btn-primary sm" type="button" id="get-started-btn">
+        Get Started <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+      <button class="icon-btn menu-btn" type="button" id="menu-btn" aria-label="Menu">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+    <div class="mobile-drawer" id="mobile-drawer" hidden>
+      <a href="#landing" data-nav-home>Home</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <button class="btn btn-ghost block" type="button" id="drawer-signin">Sign In</button>
+      <button class="btn btn-primary block" type="button" id="drawer-get-started">Get Started</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- ============================================================
+         01 · LANDING
+         ============================================================ -->
+    <section id="view-landing" class="view">
+      <div class="hero" id="landing">
+        <div class="hero-badge">
+          <span class="ai-orb sm" aria-hidden="true"></span>
+          AI-POWERED INTERVIEW PREPARATION
+        </div>
+        <h1 class="hero-title">Meet Your <span class="gradient-text">AI Interviewer</span></h1>
+        <p class="hero-sub">Practice smarter. Answer confidently. Get interview-ready with personalized
+          AI interviews based on your resume and career goals.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary lg" id="landing-start">
+            Start Interview <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+          <button class="btn btn-ghost lg" id="landing-upload">
+            <span class="material-symbols-outlined">upload_file</span> Upload Resume
+          </button>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb aurora"></div>
+          <div class="float-dots" data-dots></div>
+          <div class="neural-ring"></div>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><span class="material-symbols-outlined">description</span>Resume-Based Questions</div>
+          <div class="trust-item"><span class="material-symbols-outlined">sync_alt</span>Adaptive Follow-ups</div>
+          <div class="trust-item"><span class="material-symbols-outlined">monitoring</span>AI Performance Analysis</div>
+        </div>
+      </div>
+
+      <div class="section" id="how-it-works">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps-row">
+          <div class="how-card">
+            <span class="step-num">01</span>
+            <h3>Upload Resume</h3>
+            <p>Share your PDF resume so the AI knows your experience.</p>
+          </div>
+          <div class="how-card">
+            <span class="step-num">02</span>
+            <h3>Configure Interview</h3>
+            <p>Pick your target role, difficulty, and question mix.</p>
+          </div>
+          <div class="how-card">
+            <span class="step-num">03</span>
+            <h3>Face the AI Interviewer</h3>
+            <p>Answer live questions with adaptive follow-ups.</p>
+          </div>
+          <div class="how-card">
+            <span class="step-num">04</span>
+            <h3>Improve</h3>
+            <p>Get a full performance report and practice plan.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" id="features">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+          <div class="feature-card"><span class="material-symbols-outlined">document_scanner</span><h3>Resume Analysis</h3><p>Automatically extracts skills, projects, education, and experience.</p></div>
+          <div class="feature-card"><span class="material-symbols-outlined">quiz</span><h3>Personalized Questions</h3><p>Questions generated from your actual resume and target role.</p></div>
+          <div class="feature-card"><span class="material-symbols-outlined">sync_alt</span><h3>Adaptive Follow-ups</h3><p>The interviewer digs deeper based on your answers.</p></div>
+          <div class="feature-card"><span class="material-symbols-outlined">fact_check</span><h3>AI Answer Scoring</h3><p>Instant multi-dimension scoring on every answer.</p></div>
+          <div class="feature-card"><span class="material-symbols-outlined">monitoring</span><h3>Performance Analytics</h3><p>Track your growth across scores and categories.</p></div>
+          <div class="feature-card"><span class="material-symbols-outlined">feedback</span><h3>Personalized Feedback</h3><p>Strengths, weaknesses, and better-answer rewrites.</p></div>
+        </div>
+      </div>
+
+      <div class="section cta" id="about">
+        <h2 class="section-title">Ready to test yourself?</h2>
+        <p>Turn your resume into your next interview practice session.</p>
+        <button class="btn btn-primary lg" id="landing-cta">
+          Start Your Interview <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         02 · RESUME UPLOAD  (STEP 01/04)
+         ============================================================ -->
+    <section id="view-upload" class="view" hidden>
+      <div class="steps" id="steps-bar"><div class="step active">01 Upload</div><div class="step">02 Analysis</div><div class="step">03 Setup</div><div class="step">04 Report</div></div>
+      <div class="page-head">
+        <h1 class="page-title">Upload Your Resume</h1>
+        <p class="page-sub">Your resume helps the AI create questions specifically for your experience.</p>
+      </div>
+      <label id="dropzone" class="upload-card" for="resume-input">
+        <input id="resume-input" type="file" accept=".pdf,.txt" hidden />
+        <div class="upload-icon"><span class="material-symbols-outlined">upload_file</span></div>
+        <p class="upload-title">Drop your resume here</p>
+        <p class="upload-hint">Upload a PDF file to get started</p>
+        <span class="btn btn-primary sm">Browse Files</span>
+        <p class="upload-meta">PDF &bull; Maximum 10 MB</p>
+      </label>
+      <p id="upload-error" class="error-text" hidden></p>
+
+      <!-- Uploaded file + progress -->
+      <div class="upload-card file-card" id="file-card" hidden>
+        <div class="file-row">
+          <span class="file-icon material-symbols-outlined">picture_as_pdf</span>
+          <div class="file-info">
+            <p id="file-card-name" class="file-name">resume.pdf</p>
+            <div class="upload-track"><div id="upload-fill" class="upload-fill"></div></div>
+            <p id="file-card-size" class="file-meta">Preparing upload&hellip;</p>
+          </div>
+        </div>
+        <button class="icon-btn" id="remove-file" type="button" aria-label="Remove file"><span class="material-symbols-outlined">close</span></button>
+      </div>
+
+      <!-- AI processing animation -->
+      <div class="ai-processing" id="ai-processing" hidden>
+        <div class="orb thinking"></div>
+        <p id="ai-stage-title" class="ai-stage-title">AI is analyzing your resume...</p>
+        <ul class="stage-list" id="stage-list">
+          <li data-stage="reading"><span class="m-st sr-only">Reading resume</span></li>
+        </ul>
+      </div>
+      <div class="page-actions">
+        <button class="btn btn-primary lg" id="continue-btn" type="button" hidden>
+          Continue <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 · RESUME ANALYSIS  (STEP 02/04)
+         ============================================================ -->
+    <section id="view-analysis" class="view" hidden>
+      <div class="steps" data-steps><div class="step">01 Upload</div><div class="step active">02 Analysis</div><div class="step">03 Setup</div><div class="step">04 Report</div></div>
+      <div class="page-head">
+        <h1 class="page-title">Your Resume, Understood.</h1>
+        <p class="page-sub" id="analysis-candidate"></p>
+      </div>
+      <div class="analysis-grid">
+        <div class="glass-card candidate-card">
+          <div class="candidate-head">
+            <div class="avatar" id="analysis-avatar">AI</div>
+            <div>
+              <h2 id="analysis-name" class="candidate-name">Candidate</h2>
+              <p id="analysis-focus" class="candidate-focus">Professional focus</p>
+            </div>
+          </div>
+          <blockquote id="analysis-summary" class="summary-text"></blockquote>
+          <div class="insights-box">
+            <h4><span class="material-symbols-outlined">auto_awesome</span> AI Resume Insights</h4>
+            <ul id="analysis-insights"></ul>
+          </div>
+        </div>
+        <div class="info-cards" id="info-cards">
+          <div class="glass-card mini" data-set="skills"><h4><span class="material-symbols-outlined">code</span> Skills</h4><div class="chips" id="ic-skills"></div></div>
+          <div class="glass-card mini" data-set="education"><h4><span class="material-symbols-outlined">school</span> Education</h4><ul id="ic-education"></ul></div>
+          <div class="glass-card mini" data-set="projects"><h4><span class="material-symbols-outlined">rocket_launch</span> Projects</h4><ul id="ic-projects"></ul></div>
+          <div class="glass-card mini" data-set="experience"><h4><span class="material-symbols-outlined">work</span> Experience</h4><ul id="ic-experience"></ul></div>
+          <div class="glass-card mini" data-set="certifications"><h4><span class="material-symbols-outlined">workspace_premium</span> Certifications</h4><ul id="ic-certifications"></ul></div>
+        </div>
+      </div>
+      <div class="page-actions">
+        <button class="btn btn-primary lg" id="analysis-continue" type="button">
+          Continue to Interview Setup <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 · INTERVIEW SETUP  (STEP 03/04)
+         ============================================================ -->
+    <section id="view-setup" class="view" hidden>
+      <div class="steps" data-steps><div class="step">01 Upload</div><div class="step">02 Analysis</div><div class="step active">03 Setup</div><div class="step">04 Report</div></div>
+      <div class="page-head">
+        <h1 class="page-title">Configure Your Interview</h1>
+        <p class="page-sub">Customize the interview to match your target role.</p>
+      </div>
+      <div class="setup-grid">
+        <div class="setup-fields">
+          <fieldset class="field">
+            <legend>Job Role</legend>
+            <div class="option-grid" id="role-options"></div>
+            <input id="custom-role" class="text-input" type="text" placeholder="Custom role (e.g. Cloud Architect)" hidden />
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Difficulty</legend>
+            <div class="option-row" id="difficulty-options">
+              <label class="opt"><input type="radio" name="diff" value="easy" /><span><b>Easy</b><small>Fundamental concepts</small></span></label>
+              <label class="opt"><input type="radio" name="diff" value="medium" checked /><span><b>Medium</b><small>Real-world technical &amp; behavioral</small></span></label>
+              <label class="opt"><input type="radio" name="diff" value="hard" /><span><b>Hard</b><small>Deep technical reasoning</small></span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Question Count</legend>
+            <div class="option-row small" id="count-options">
+              <label class="opt pill"><input type="radio" name="count" value="5" /><span>5</span></label>
+              <label class="opt pill"><input type="radio" name="count" value="10" checked /><span>10</span></label>
+              <label class="opt pill"><input type="radio" name="count" value="15" /><span>15</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Duration</legend>
+            <div class="option-row small" id="duration-options">
+              <label class="opt pill"><input type="radio" name="duration" value="600" /><span>10 min</span></label>
+              <label class="opt pill"><input type="radio" name="duration" value="1200" checked /><span>20 min</span></label>
+              <label class="opt pill"><input type="radio" name="duration" value="1800" /><span>30 min</span></label>
+            </div>
+          </fieldset>
+          <p id="setup-error" class="error-text" hidden></p>
+          <button class="btn btn-primary lg block" id="generate-btn" type="button">
+            Generate My Interview <span class="material-symbols-outlined">auto_awesome</span>
+          </button>
+        </div>
+
+        <aside class="glass-card preview-card">
+          <h4>Interview Preview</h4>
+          <div class="preview-row"><span>Role</span><b id="pv-role">—</b></div>
+          <div class="preview-row"><span>Difficulty</span><b id="pv-diff">Medium</b></div>
+          <div class="preview-row"><span>Type</span><b id="pv-type">Mixed</b></div>
+          <div class="preview-row"><span>Questions</span><b id="pv-count">10</b></div>
+          <div class="preview-row"><span>Est. time</span><b id="pv-time">20 min</b></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         05 · GENERATING INTERVIEW
+         ============================================================ -->
+    <section id="view-generating" class="view fullscreen-load" hidden>
+      <div class="orb loading"></div>
+      <h2 class="load-title">Building Your Interview</h2>
+      <ul class="stage-list vertical" id="gen-stages"></ul>
+      <p class="load-sub" id="gen-sub">Your questions are being created from your resume, target role, and selected difficulty.</p>
+    </section>
+
+    <!-- ============================================================
+         06 · INTERVIEW ROOM
+         ============================================================ -->
+    <section id="view-interview" class="view" hidden>
+      <div class="interview-toolbar glass-card">
+        <div class="tb-brand"><span class="ai-orb sm"></span><b>INTERVIEW SESSION</b></div>
+        <div class="tb-timer" id="timer">20:00</div>
+        <div class="tb-actions">
+          <button class="btn btn-danger sm" id="exit-interview" type="button">Exit Interview</button>
+        </div>
+      </div>
+
+      <div class="interview-layout">
+        <div class="interview-main">
+          <div class="interviewer glass-card" id="interviewer-box">
+            <div class="orb talking" id="ai-orb"></div>
+            <span class="interviewer-label"><span class="pulse-dot"></span>AI INTERVIEWER &bull; ACTIVE</span>
+          </div>
+
+          <div class="glass-card question-panel" id="question-panel" hidden>
+            <div class="q-head">
+              <span class="q-label" id="q-label">QUESTION 01</span>
+              <span class="chip" id="q-meta">Technical &bull; Medium</span>
+            </div>
+            <div class="follow-up-note" id="followup-note" hidden>
+              <span class="chip accent">AI FOLLOW-UP</span>
+              <p>This question is based on your previous answer.</p>
+              <div class="connection"><span id="conn-question">Previous answer</span><span class="material-symbols-outlined">arrow_downward</span><span id="conn-followup">Follow-up question</span></div>
+            </div>
+            <h2 class="question-text" id="q-text"></h2>
+            <div class="q-progress">
+              <div class="q-progress-meta"><span id="q-progress-text">04 / 10</span></div>
+              <div class="progress-track"><div class="progress-fill" id="q-progress-bar"></div></div>
+            </div>
+          </div>
+
+          <div class="glass-card answer-panel" id="answer-panel" hidden>
+            <label class="sr-only" for="answer-input">Your answer</label>
+            <textarea id="answer-input" class="glass-input" rows="6" placeholder="Type your answer here..."></textarea>
+            <div class="answer-actions">
+              <button class="btn btn-ghost sm" id="mic-btn" type="button" title="Answer with voice"><span class="material-symbols-outlined">mic</span></button>
+              <button class="btn btn-ghost sm" id="clear-btn" type="button">Clear</button>
+              <button class="btn btn-ghost sm" id="skip-btn" type="button">Skip Question</button>
+              <button class="btn btn-primary sm" id="submit-btn" type="button">Submit Answer</button>
+            </div>
+            <div class="ai-thinking" id="answer-loading" hidden>
+              <div class="orb xs"></div><span id="answer-loading-text">Analyzing your answer...</span>
+            </div>
+            <p id="answer-error" class="error-text" hidden></p>
+          </div>
+        </div>
+
+        <!-- Interview Progress (sidebar on desktop, drawer on mobile) -->
+        <aside class="glass-card progress-panel" id="progress-panel">
+          <div class="pp-head">
+            <h4>Interview Progress</h4>
+            <span id="pp-count">0 / 0</span>
+          </div>
+          <div class="progress-track"><div id="pp-bar" class="progress-fill"></div></div>
+          <ul class="pp-cats" id="pp-cats">
+            <li data-cat="Technical"><span class="dot"></span>Technical</li>
+            <li data-cat="Behavioral"><span class="dot"></span>Behavioral</li>
+            <li data-cat="Project"><span class="dot"></span>Project</li>
+            <li data-cat="Situational"><span class="dot"></span>Situational</li>
+          </ul>
+          <div class="pp-session">
+            <p>Role <b id="pp-role">—</b></p>
+            <p>Difficulty <b id="pp-diff">—</b></p>
+            <p>Type <b id="pp-type">Mixed</b></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         07 · ANALYZING RESULTS
+         ============================================================ -->
+    <section id="view-analyzing" class="view fullscreen-load" hidden>
+      <div class="orb analyzing"></div>
+      <h2 class="load-title">Analyzing Your Interview</h2>
+      <ul class="stage-list vertical" id="an-stages"></ul>
+      <p class="load-sub">Your AI performance report is being prepared.</p>
+    </section>
+
+    <!-- ============================================================
+         08 · FINAL PERFORMANCE REPORT
+         ============================================================ -->
+    <section id="view-report" class="view" hidden>
+      <div class="report-hero">
+        <div>
+          <h1 class="page-title">Your Interview Performance</h1>
+          <p class="page-sub">AI-generated analysis of your interview session.</p>
+        </div>
+        <div class="big-score">
+          <div class="score-ring" id="score-ring"><div class="score-ring-inner"><strong id="overall-score">0</strong><span>/ 100</span></div></div>
+          <p class="score-label" id="score-label">Loading&hellip;</p>
+        </div>
+      </div>
+
+      <div class="score-cards" id="score-cards"></div>
+
+      <div class="panel-row">
+        <div class="glass-card chart-card">
+          <h4><span class="material-symbols-outlined">bar_chart</span> Performance Chart</h4>
+          <div class="chart" id="chart"></div>
+        </div>
+        <div class="glass-card insights-card">
+          <h4><span class="material-symbols-outlined">lightbulb</span> AI Insights</h4>
+          <div class="insight-list">
+            <div><span class="mat check material-symbols-outlined">check_circle</span><b>Strengths</b><ul id="report-strengths"></ul></div>
+            <div><span class="mat warn material-symbols-outlined">error</span><b>Weaknesses</b><ul id="report-weaknesses"></ul></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-card feedback-card">
+        <h4><span class="material-symbols-outlined">fact_check</span> Your Personalized AI Feedback</h4>
+        <div class="feedback-cols">
+          <div><b>What You Did Well</b><ul id="report-did-well"></ul></div>
+          <div><b>What To Improve</b><ul id="report-improve"></ul></div>
+          <div><b>Better Answer Examples</b><ul id="report-better-list"></ul></div>
+        </div>
+      </div>
+
+      <div class="glass-card qa-card">
+        <h4><span class="material-symbols-outlined">rate_review</span> Answer Analysis</h4>
+        <div id="question-analysis"></div>
+      </div>
+
+      <div class="glass-card practice-card">
+        <h4><span class="material-symbols-outlined">exercise</span> Your Recommended Practice</h4>
+        <div id="practice-grid"></div>
+      </div>
+
+      <div class="report-actions">
+        <button class="btn btn-ghost" id="retry-btn"><span class="material-symbols-outlined">replay</span> Retry Interview</button>
+        <button class="btn btn-ghost" id="weak-btn"><span class="material-symbols-outlined">target</span> Practice Weak Areas</button>
+        <button class="btn btn-ghost" id="download-btn"><span class="material-symbols-outlined">download</span> Download Report</button>
+        <button class="btn btn-ghost" id="dashboard-btn"><span class="material-symbols-outlined">dashboard</span> Back to Dashboard</button>
+        <button class="btn btn-primary" id="another-btn">Start Another Interview <span class="material-symbols-outlined">arrow_forward</span></button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         09 · USER DASHBOARD
+         ============================================================ -->
+    <section id="view-dashboard" class="view" hidden>
+      <div class="dash-head">
+        <h1 class="page-title">Welcome back<span class="accent">.</span></h1>
+        <button class="btn btn-primary sm" id="dash-start"><span class="material-symbols-outlined">add</span> New Interview</button>
+      </div>
+      <div class="stats-grid">
+        <div class="glass-card stat"><span class="stat-icon ai-orb-col"></span><div><p class="stat-label">Current Average</p><b id="stat-avg">0</b></div></div>
+        <div class="glass-card stat"><span class="stat-icon"><span class="material-symbols-outlined">history</span></span><div><p class="stat-label">Interview Sessions</p><b id="stat-sessions">0</b></div></div>
+        <div class="glass-card stat"><span class="stat-icon"><span class="material-symbols-outlined">workspace_premium</span></span><div><p class="stat-label">Best Score</p><b id="stat-best">0</b></div></div>
+        <div class="glass-card stat"><span class="stat-icon"><span class="material-symbols-outlined">question_answer</span></span><div><p class="stat-label">Questions Answered</p><b id="stat-answered">0</b></div></div>
+      </div>
+      <div class="dash-grid">
+        <div class="glass-card recent-card">
+          <h4><span class="material-symbols-outlined">history</span> Recent Interviews</h4>
+          <div id="recent-list"></div>
+        </div>
+        <div class="glass-card trend-card">
+          <h4><span class="material-symbols-outlined">show_chart</span> Performance Trend</h4>
+          <div class="chart" id="trend-chart"></div>
+        </div>
+      </div>
+      <div class="dash-grid second">
+        <div class="glass-card weak-card">
+          <h4><span class="material-symbols-outlined">target</span> Weak Areas</h4>
+          <div class="chips" id="weak-chips"></div>
+        </div>
+        <div class="glass-card rec-card">
+          <h4><span class="material-symbols-outlined">auto_awesome</span> Recommended Practice</h4>
+          <div id="dash-practice"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><span class="ai-orb sm"></span><span class="logo-text">AI Interview<span class="accent">.Bot</span></span></div>
+        <p>Practice smarter, answer confidently, and get interview-ready with AI.</p>
+      </div>
+      <div class="footer-cols">
+        <div><h5>Product</h5><a href="#features">Features</a><a href="#how-it-works">How It Works</a><a href="#about">About</a></div>
+        <div><h5>Legal</h5><a href="#">Privacy</a><a href="#">Terms</a></div>
+        <div><h5>Connect</h5><a href="#">GitHub</a><a href="#" data-nav-home>Contact</a></div>
+      </div>
+    </div>
+    <p class="footer-copy">&copy; <span id="year">2026</span> AI Interview Bot. Built for interview practice.</p>
+  </footer>
+
+  <!-- End Interview Modal -->
+  <div class="modal" id="modal-end" hidden>
+    <div class="glass-card modal-card">
+      <div class="modal-icon"><span class="material-symbols-outlined">logout</span></div>
+      <h3>End Interview?</h3>
+      <p>Your current interview progress will be submitted and analyzed.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="modal-continue" type="button">Continue Interview</button>
+        <button class="btn btn-danger" id="modal-end" type="button">End &amp; View Results</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+   <script src="app.js?v=6"></script>
+</body>
+</html>
