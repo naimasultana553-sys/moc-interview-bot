@@ -20,3 +20,7 @@ backend/server_err.log
 Thumbs.db
 .vscode/
 .idea/
+
+# Large auto-generated / local files
+repos.json
+*.zip
